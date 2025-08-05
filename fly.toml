@@ -3,10 +3,20 @@
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
+
+# 起動するためには
+# fly apps create paas-verification-tiny-nodejs
+# fly deploy
+# 検証終わったら消す
+# fly
+
 app = 'paas-verification-tiny-nodejs'
 primary_region = 'nrt'
 
 [build]
+
+[processes]
+  app = "npm start"
 
 [http_service]
   internal_port = 3000
